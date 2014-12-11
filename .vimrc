@@ -110,3 +110,10 @@ set formatoptions=qrn1
 " Use the same symbols as TextMate for tabstops and EOLs
 set list
 set listchars=tab:▸\
+
+" conoline plugin autoactivate for current line hightlight
+let g:conoline_auto_enable = 1
+" Use colors defined by colorscheme in normal mode.
+let g:conoline_use_colorscheme_default_normal = 1
+" Use colors defined by colorscheme in insert mode.
+let g:conoline_use_colorscheme_default_insert = 1
