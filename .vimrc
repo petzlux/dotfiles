@@ -83,6 +83,10 @@ set pastetoggle=<F2>
 
 set mouse=a
 
+" Cange editing behaviour
+set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
+
 " Leader
 let mapleader = ","
 
@@ -95,6 +99,7 @@ set incsearch
 set showmatch
 set hlsearch
 set gdefault
+nmap <silent> ,/ :nohlsearch<CR>
 
 " Disable highlight
 map <leader><space> :noh<cr>:call clearmatches()<cr>
@@ -109,7 +114,7 @@ set formatoptions=qrn1
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set list
-set listchars=tab:▸\
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " conoline plugin autoactivate for current line hightlight
 let g:conoline_auto_enable = 1
