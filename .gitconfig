@@ -1,6 +1,3 @@
-[user]
-    name = Patrick Weber
-    email = pweber@spatialbit.com
 [color]
     diff = auto
     status = auto
@@ -29,7 +26,6 @@
     fshow = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
     vim = ! sh -c 'vim `git fshow $1`' -
 [credential]
-    username = petzlux
     helper = osxkeychain
     helper = cache
 [filter "media"]
