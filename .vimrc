@@ -116,6 +116,12 @@ set formatoptions=qrn1
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
+" vim-flake8 options
+let g:flake8_show_quickfix=1
+let g:flake8_show_in_file=1
+let g:flake8_show_in_gutter=1
+autocmd BufWritePost *.py call Flake8()
+
 " conoline plugin autoactivate for current line hightlight
 let g:conoline_auto_enable = 1
 " Use colors defined by colorscheme in normal mode.
