@@ -10,6 +10,12 @@
     excludesfile = ~/.global_gitignore
     pager = less -r
 
+[branch]
+    autosetupmerge = false
+
+[push]
+    default = nothing
+
 [alias]
     st = status
     ci = commit
@@ -26,3 +32,7 @@
     username = petzlux
     helper = osxkeychain
     helper = cache
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
