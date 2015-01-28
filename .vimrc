@@ -122,6 +122,22 @@ let g:flake8_show_in_file=1
 let g:flake8_show_in_gutter=1
 autocmd BufWritePost *.py call Flake8()
 
+" Autocomplete settings for python
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+" VIRTUALENV setup
+:python << EOF
+import os
+virtualenv = os.environ.get('VIRTUAL_ENV')
+if virtualenv:
+    activate_this = os.path.join(virtualenv, 'bin', 'activate_this.py')
+    if os.path.exists(activate_this):
+        execfile(activate_this, dict(__file__=activate_this))
+EOF
+
 " conoline plugin autoactivate for current line hightlight
 let g:conoline_auto_enable = 1
 " Use colors defined by colorscheme in normal mode.
