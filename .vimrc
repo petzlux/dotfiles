@@ -112,6 +112,9 @@ set wrap
 set textwidth=79
 set formatoptions=qrn1
 
+" Ctrlp plugin set to search all files, buffers and history
+let g:ctrlp_cmd = 'CtrlPMixed'
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
