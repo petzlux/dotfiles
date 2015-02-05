@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/jedi-vim"]
 	path = .vim/bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
+[submodule ".dircolors"]
+	path = .dircolors
+	url = https://github.com/trapd00r/LS_COLORS

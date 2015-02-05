@@ -5,9 +5,9 @@ export EDITOR=vim
 export HISTTIMEFORMAT="%F %T "
 
 # You may uncomment the following lines if you want `ls' to be colorized:
-export LS_OPTIONS='-GAt'
+export LS_OPTIONS='-GAt --color'
 export HISTCONTROL=ignoredups
-#eval `dircolors`
+eval $(dircolors -b .dircolors/LS_COLORS)
 alias ls='ls $LS_OPTIONS'
 alias l='ls $LS_OPTIONS -Fahl'
 
