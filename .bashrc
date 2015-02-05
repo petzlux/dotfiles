@@ -40,7 +40,7 @@ if which brew >/dev/null; then
     fi
 fi
 
-export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]$(__git_ps1)\$ "
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$(__git_ps1)\$ "
 export CLICOLOR=1
 
 GIT_PS1_SHOWDIRTYSTATE=1
