@@ -4,10 +4,16 @@ export EDITOR=vim
 
 export HISTTIMEFORMAT="%F %T "
 
-# You may uncomment the following lines if you want `ls' to be colorized:
-export LS_OPTIONS='-GAt --color'
+if [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform        
+    export LS_OPTIONS='-GAt'
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under Linux platform
+    export LS_OPTIONS='-GAt --color'
+    eval $(dircolors -b .dircolors/LS_COLORS)
+fi
+
 export HISTCONTROL=ignoredups
-eval $(dircolors -b .dircolors/LS_COLORS)
 alias ls='ls $LS_OPTIONS'
 alias l='ls $LS_OPTIONS -Fahl'
 
