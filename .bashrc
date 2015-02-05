@@ -7,9 +7,15 @@ export HISTTIMEFORMAT="%F %T "
 if [ "$(uname)" == "Darwin" ]; then
     # Do something under Mac OS X platform        
     export LS_OPTIONS='-GAt'
+    if which brew >/dev/null; then
+        if [ -f `brew --prefix`/etc/bash_completion ]; then
+            . `brew --prefix`/etc/bash_completion
+        fi
+    fi
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # Do something under Linux platform
     export LS_OPTIONS='-GAt --color'
+    source /usr/share/git-core/contrib/completion/git-prompt.sh
     eval $(dircolors -b .dircolors/LS_COLORS)
 fi
 
@@ -40,11 +46,6 @@ if [ -f ~/.bashrc_after ]; then
     source ~/.bashrc_after
 fi
 
-if which brew >/dev/null; then
-    if [ -f `brew --prefix`/etc/bash_completion ]; then
-        . `brew --prefix`/etc/bash_completion
-    fi
-fi
 
 export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$(__git_ps1)\$ "
 export CLICOLOR=1
