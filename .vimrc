@@ -45,8 +45,8 @@ endfunction
 " Map Ctrl + HJKL to move and open new splits as needed
 noremap <C-J> :call WinMove('j')<cr>
 noremap <C-K> :call WinMove('k')<cr>
-noremap <C-L> <:call WinMove('l')<cr>
-noremap <C-H> <:call WinMove('h')<cr>
+noremap <C-L> :call WinMove('l')<cr>
+noremap <C-H> :call WinMove('h')<cr>
 
 " Map Ctrl + a  to switch between buffers
 noremap <C-a> :bnext<cr>
