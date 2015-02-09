@@ -51,6 +51,9 @@ noremap <C-H> :call WinMove('h')<cr>
 " Map Ctrl + a  to switch between buffers
 noremap <C-a> :bnext<cr>
 
+" autor equalise splits on window resize
+autocmd VimResized * wincmd =
+
 " Security
 set modelines=0
 
