@@ -122,12 +122,6 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-" vim-flake8 options
-let g:flake8_show_quickfix=1
-let g:flake8_show_in_file=1
-let g:flake8_show_in_gutter=1
-autocmd BufWritePost *.py call Flake8()
-
 " Autocomplete settings for python
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
@@ -187,3 +181,4 @@ let g:syntastic_mode_map = { 'mode': 'active',
     \ 'passive_filetypes': ['html'] }
 let g:syntastic_javascript_closurecompiler_path = '~/.dotfiles/.vim/closure_compiler/compiler.jar'
 let g:syntastic_javascript_checkers = ["closurecompiler"]
+let g:syntastic_python_checkers = ["flake8", "pep8"]
