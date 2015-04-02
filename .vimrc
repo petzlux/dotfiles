@@ -65,7 +65,7 @@ set expandtab
 
 " Special filetype conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-
+au FileType js setlocal ts=2 sts=2 sw=2 expandtab
 " Basic options
 set encoding=utf-8
 set scrolloff=3
@@ -160,3 +160,30 @@ let g:conoline_auto_enable = 1
 let g:conoline_use_colorscheme_default_normal = 1
 " Use colors defined by colorscheme in insert mode.
 let g:conoline_use_colorscheme_default_insert = 1
+
+" syntastic syntax checker config 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" toggle error window with ctrl e
+function! ToggleErrors()
+    if empty(filter(tabpagebuflist(), 'getbufvar(v:val, "&buftype") is# "quickfix"'))
+         " No location/quickfix list shown, open syntastic error location panel
+         Errors
+    else
+        lclose
+    endif
+endfunction
+nnoremap <silent> <C-e> :<C-u>call ToggleErrors()<CR>
+
+let g:syntastic_mode_map = { 'mode': 'active',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': ['html'] }
+let g:syntastic_javascript_closurecompiler_path = '~/.dotfiles/.vim/closure_compiler/compiler.jar'
+let g:syntastic_javascript_checkers = ["closurecompiler"]
