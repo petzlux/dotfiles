@@ -65,7 +65,7 @@ set expandtab
 
 " Special filetype conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-au FileType js setlocal ts=2 sts=2 sw=2 expandtab
+au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 " Basic options
 set encoding=utf-8
 set scrolloff=3
@@ -102,7 +102,8 @@ set incsearch
 set showmatch
 set hlsearch
 set gdefault
-nmap <silent> ,/ :nohlsearch<CR>
+"This unsets the "last search pattern" register by hitting return
+nnoremap <CR> :noh<CR><CR>
 
 " Disable highlight
 map <leader><space> :noh<cr>:call clearmatches()<cr>
@@ -180,5 +181,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
     \ 'active_filetypes': [],
     \ 'passive_filetypes': ['html'] }
 let g:syntastic_javascript_closurecompiler_path = '~/.dotfiles/.vim/closure_compiler/compiler.jar'
-let g:syntastic_javascript_checkers = ["closurecompiler"]
+let g:syntastic_javascript_checkers = ["gjslint"]
+let g:syntastic_gjslint_conf = " --jslint_error=all --strict --custom_jsdoc_tags=event,fires,function,classdesc,api,observable "
 let g:syntastic_python_checkers = ["flake8", "pep8"]
