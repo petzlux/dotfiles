@@ -184,3 +184,10 @@ let g:syntastic_javascript_closurecompiler_path = '~/.dotfiles/.vim/closure_comp
 let g:syntastic_javascript_checkers = ["gjslint"]
 let g:syntastic_gjslint_conf = " --jslint_error=all --strict --custom_jsdoc_tags=event,fires,function,classdesc,api,observable "
 let g:syntastic_python_checkers = ["flake8", "pep8"]
+
+" GitGutter config
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+let g:gitgutter_updatetime = 750
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hu <Plug>GitGutterRevertHunk
