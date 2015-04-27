@@ -191,3 +191,4 @@ let g:gitgutter_eager = 1
 let g:gitgutter_updatetime = 750
 nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hu <Plug>GitGutterRevertHunk
+nmap <Leader>hv <Plug>GitGutterPreviewHunk
