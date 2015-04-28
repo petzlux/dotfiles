@@ -4,6 +4,9 @@ filetype plugin indent on
 
 set nocompatible
 
+" Leader
+let mapleader = ","
+
 " Backups {{{
 if v:version >= 703
     set undofile
@@ -90,9 +93,6 @@ set mouse=a
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
-" Leader
-let mapleader = ","
-
 " Searching
 nnoremap / /\v
 vnoremap / /\v
@@ -115,6 +115,14 @@ vmap <tab> %
 set wrap
 set textwidth=79
 set formatoptions=qrn1
+
+" folding options
+set foldmethod=syntax
+set foldlevelstart=1
+let javaScript_fold=1         " JavaScript
+let sh_fold_enabled=1         " sh
+let vimsyn_folding='af'       " Vim script
+let xml_syntax_folding=1      " XML
 
 " Ctrlp plugin set to search all files, buffers and history
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -189,6 +197,10 @@ let g:syntastic_python_checkers = ["flake8", "pep8"]
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_updatetime = 750
-nmap <Leader>ha <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterRevertHunk
-nmap <Leader>hv <Plug>GitGutterPreviewHunk
+nmap <leader>ha <Plug>GitGutterStageHunk
+nmap <leader>hu <Plug>GGitGutterRevertHunk
+nmap <leader>hp <Plug>GitGutterPreviewHunk
+
+" automatically close preview window
+autocmd CursorHold *  if pumvisible() == 0|silent! pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
