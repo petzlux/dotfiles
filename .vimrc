@@ -60,15 +60,13 @@ autocmd VimResized * wincmd =
 " Security
 set modelines=0
 
-" Tabs/spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-
-" Special filetype conf
+" Special filetype indentationindentation conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+au FileType html setlocal ts=2 sts=2 sw=2 expandtab
+au FileType css setlocal ts=2 sts=2 sw=2 expandtab
+
 " Basic options
 set encoding=utf-8
 set scrolloff=3
