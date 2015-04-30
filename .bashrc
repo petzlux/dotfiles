@@ -30,6 +30,9 @@ alias mv='mv -i'
 
 alias webserver='python -m SimpleHTTPServer 8081'
 
+alias ssh-tunnels-kill='ps aux | grep "ssh" | grep "\-f" | awk '\''{print $2}'\'' | xargs kill'
+alias ssh-tunnels='ps aux | grep "ssh" | grep "\-f"'
+
 if [ `id -u` -eq 0 ]; then
   export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/bin/X11:/usr/games"
 fi
