@@ -21,4 +21,5 @@ directory:
 Search for a string across files
 ````vim
 :vimgrep /pattern/ recursive/path/search/**/*.ext
+:copen
 ````
