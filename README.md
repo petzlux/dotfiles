@@ -1,6 +1,6 @@
 dotfiles
 ========
-My personal bash, git & vim config
+#My personal bash, git & vim config
 
 ```bash
   git clone https://github.com/petzlux/dotfiles ~/dotfiles
@@ -16,4 +16,11 @@ directory:
   if [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]; then
       . /usr/share/git-core/contrib/completion/git-prompt.sh
   fi
-```
+````
+
+#Vim commands:
+
+Search for a string across files
+````vim
+:vimgrep /pattern/ recursive/path/search/**/*.ext
+````
