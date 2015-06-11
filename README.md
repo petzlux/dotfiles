@@ -1,6 +1,4 @@
-dotfiles
-========
-#My personal bash, git & vim config
+##My personal bash, git & vim config
 
 ```bash
   git clone https://github.com/petzlux/dotfiles ~/dotfiles
@@ -18,7 +16,7 @@ directory:
   fi
 ````
 
-#Vim commands:
+##Vim commands:
 
 Search for a string across files
 ````vim
