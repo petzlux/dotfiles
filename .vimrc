@@ -117,10 +117,6 @@ set formatoptions=qrn1
 " folding options
 set foldmethod=syntax
 set foldlevelstart=1
-let javaScript_fold=1         " JavaScript
-let sh_fold_enabled=1         " sh
-let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
 
 " Ctrlp plugin set to search all files, buffers and history
 let g:ctrlp_cmd = 'CtrlPMixed'
