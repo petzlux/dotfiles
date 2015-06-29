@@ -5,7 +5,22 @@ filetype plugin indent on
 set nocompatible
 
 " Leader
-let mapleader = ","
+" let mapleader = ","
+let mapleader = "\<Space>"
+
+" leader shortcuts 
+" stuff from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>b :bd<CR>
+nnoremap <Leader>e :e<CR>
+nmap <Leader>v V
+
+" Automatically jump to end of text you pasted:
+" I can paste multiple lines multiple times with simple ppppp.
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
 
 " Backups {{{
 if v:version >= 703
@@ -198,3 +213,33 @@ nmap <leader>hp <Plug>GitGutterPreviewHunk
 " automatically close preview window
 autocmd CursorHold *  if pumvisible() == 0|silent! pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+" expand region plugin mapping
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" use git to search for files for Ctrl P
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
+
+" vp doesn't replace paste buffer
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
