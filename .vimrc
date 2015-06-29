@@ -16,6 +16,10 @@ nnoremap <Leader>b :bd<CR>
 nnoremap <Leader>e :e<CR>
 nmap <Leader>v V
 
+" use tab to match and navigate between brackets
+nnoremap <tab> %
+vnoremap <tab> %
+
 " Automatically jump to end of text you pasted:
 " I can paste multiple lines multiple times with simple ppppp.
 vnoremap <silent> y y`]
