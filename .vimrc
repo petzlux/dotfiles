@@ -10,7 +10,7 @@ let mapleader = "\<Space>"
 
 " leader shortcuts 
 " stuff from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
-nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>p :CtrlPMixed<CR>
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>b :bd<CR>
 nnoremap <Leader>e :e<CR>
@@ -115,6 +115,7 @@ set incsearch
 set showmatch
 set hlsearch
 set gdefault
+
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
 
@@ -126,7 +127,9 @@ vmap <tab> %
 
 " Soft/hard wrapping
 set wrap
+set list
 set textwidth=79
+set colorcolumn=85
 set formatoptions=qrn1
 
 " folding options
@@ -138,7 +141,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:▸\ ,eol:¬
 
 " Autocomplete settings for python
 autocmd FileType python set omnifunc=pythoncomplete#Complete
