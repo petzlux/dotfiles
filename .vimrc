@@ -119,15 +119,8 @@ set incsearch
 set showmatch
 set hlsearch
 set gdefault
-
 "This unsets the "last search pattern" register by hitting return
 nnoremap <CR> :noh<CR><CR>
-
-" Disable highlight
-map <leader><space> :noh<cr>:call clearmatches()<cr>
-runtime macros/matchit.vim
-nmap <tab> %
-vmap <tab> %
 
 " Soft/hard wrapping
 set wrap
@@ -138,7 +131,8 @@ set formatoptions=qrn1
 
 " folding options
 set foldmethod=syntax
-set foldlevelstart=1
+set foldlevelstart=99
+vnoremap <Leader>f zf
 
 " Ctrlp plugin set to search all files, buffers and history
 let g:ctrlp_cmd = 'CtrlPMixed'
