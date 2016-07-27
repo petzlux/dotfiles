@@ -41,8 +41,8 @@ if [ -d ~/bin ] ; then
    PATH=~/bin:"${PATH}"
 fi
 
-if [ -f /etc/bash_completion.d/git ]; then
-  . /etc/bash_completion.d/git
+if [ -f /etc/bash_completion ]; then
+ . /etc/bash_completion
 fi
 
 if [ -f ~/.bashrc_after ]; then
@@ -65,3 +65,6 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 
 
 
+
+export NVM_DIR="/home/wepa/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

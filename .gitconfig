@@ -37,3 +37,7 @@
 	email = pweber@spatialbit.com
 [web]
 	browser = open
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+[url "https://"]
+	insteadOf = git://
