@@ -16,6 +16,9 @@ nnoremap <Leader>b :bd<CR>
 nnoremap <Leader>e :e<CR>
 nmap <Leader>v V
 
+" Let qq be a shortcut for pressing ESC
+inoremap qq <ESC>
+
 " use tab to match and navigate between brackets
 nnoremap <tab> %
 vnoremap <tab> %
