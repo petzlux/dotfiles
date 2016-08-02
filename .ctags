@@ -1,0 +1,14 @@
+--recurse=yes
+--exclude=.git
+--exclude=tmp
+--exclude=node_modules
+--exclude=build
+--exclude=.build
+--exclude=log
+--exclude=static
+--tag-relative=yes
+--exclude=doc
+--exclude=deps
+--exclude=node_modules
+--extra=+f
+--append
