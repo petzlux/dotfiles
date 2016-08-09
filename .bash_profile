@@ -6,6 +6,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 source ~/.git-prompt.sh
+source ~/.docker-completion.sh
 
 # PS1="\[$GREEN\]\t\[$RED\]-\[$BLUE\]\u\[$YELLOW\]\[$YELLOW\]\w\[\033[m\]\[$MAGENTA\]\$(__git_ps1)\[$WHITE\]\$ "
 
