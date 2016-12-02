@@ -54,7 +54,7 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-function! WinMove(key) 
+function! WinMove(key)
     let t:curwin = winnr()
     exec "wincmd ".a:key
     if (t:curwin == winnr()) "we havent moved
@@ -82,7 +82,7 @@ autocmd VimResized * wincmd =
 " Security
 set modelines=0
 
-" Special filetype indentationindentation conf
+" Special filetype indentation conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au FileType python setlocal ts=4 sts=4 sw=4 expandtab
 au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
@@ -93,11 +93,14 @@ au FileType css setlocal ts=2 sts=2 sw=2 expandtab
 set encoding=utf-8
 set scrolloff=3
 set autoindent
+set autoread  " reload files when changed on disk
+set clipboard=unnamed " yank and paste with the system clipboard
 set showmode
 set showcmd
 set hidden
-set wildmenu
-set wildmode=list:longest
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildmenu " show a navigable menu for tab completion
+set wildmode=longest,list,full
 set visualbell
 set cursorline
 set ttyfast
@@ -211,7 +214,7 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_updatetime = 750
 nmap <leader>ha <Plug>GitGutterStageHunk
-nmap <leader>hu <Plug>GGitGutterRevertHunk
+nmap <leader>hu <Plug>GGitGutterUndoHunk
 nmap <leader>hp <Plug>GitGutterPreviewHunk
 
 " automatically close preview window
@@ -227,7 +230,6 @@ vmap <C-v> <Plug>(expand_region_shrink)
 let g:ctrlp_use_caching = 0
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor
-
     let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 else
   let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
@@ -247,3 +249,9 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
+
+" in case you forgot to sudo
+ noremap w!! %!sudo tee > /dev/null %
+
+" Don't copy the contents of an overwritten selection.
+vnoremap p "_dP
